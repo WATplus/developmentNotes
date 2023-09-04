@@ -38,27 +38,9 @@
 - async属性添加之后代码的执行顺序如下
 
 ```mermaid
-sequenceDiagram
+graph TB
 
-Alice->>John: Hello John, how are you?
-loop Healthcheck
-John->>John: Fight against hypochondria
-end
-Note right of John: Rational thoughts!
-John-->>Alice: Great!
-John->>Bob : How about you?
-Bob-->>John : Jolly good!
-
-sequenceDiagram
-
-Alice->>John: Hello John, how are you?
-loop Healthcheck
-  John->>John: Fight against hypochondria
-end
-Note right of John: Rational thoughts!
-   John-->>Alice: Great!
-   John->>Bob   : How about you?
-   Bob-->>John  : Jolly good!
+a("12") -> b("123")
 ```
 
 - 代码执行的时候依旧会阻塞页面的加载
