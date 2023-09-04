@@ -23,7 +23,14 @@
 - `src` 执行外部的脚本文件
 - `async` 代码的加载不会影响页面的加载 , 代码加载完毕之后也不会等待其他脚本文件, 会直接运行(运行过程中是阻塞页面加载的)
 - `defer` 代码加载不会影响页面的加载 , 页面加载完毕后再开始按照顺序执行代码
-- `type` 用来代替`language`属性的 , 一般填写`text/javascript` 即可
+- `type` HTML4 标准下用来代替`language`属性的 , 一般填写`text/javascript` 即可 , 现代 JavaScript 已经完全修改了其含义 , 用于**模块**
+
+## src 引用外部 JavaScript 文件
+
+- 被引用的文件会被存储在浏览器缓存中
+- 如果多个页面引用相同的`.js` 文件, 会直接从缓存中读取
+- 可以节省流量并使浏览器加载更快
+- 拥有`src=` 属性的`<script>`脚本会忽略内部的 JavaScript 代码
 
 ## 异步代码
 
@@ -108,3 +115,9 @@ sequenceDiagram
 ```
 
 > 但是如果 javascript 脚本已经执行完毕 , 再禁用页面的 javascript 脚本 , `<noscript>` 也不会显示
+
+## 现代/严格 模式的 JavaScript
+
+- 在代码的开头添加 `"use strict";` 或 `'use strict';`打开严格模式
+- `"use strict";` 必须作为代码文档的第一行 , 只有注释可以在它上面 , 否则`"use strict";`不会生效
+- 在`class`和`module` 中的代码都会默认打开 严格模式 , 不需要额外的添加`use strict`
