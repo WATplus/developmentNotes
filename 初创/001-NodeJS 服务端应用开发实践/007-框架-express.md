@@ -93,3 +93,12 @@ app.get("/posts/:postsId", (request, response) => {
 ```
 
 > 例如访问`posts/1`时 1 就会作为 postsId 参数被传入
+
+## 请求主体的内容为空的解决方案
+
+```js
+import bodyParser from "body-parser"
+// 解决request.body 为空的问题 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
+```
